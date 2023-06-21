@@ -90,3 +90,12 @@
         tags:
           Name: PrivSub3 
       register: privsub3_out
+
+    - name: Create Internet gateway
+      amazon.aws.ec2_vpc_igw:
+        vpc_id: "{{vpcout.vpc.id}}"
+        region: "{{region}}"
+        state: "{{state}}"
+        tags:
+          Tag1: IGW
+        register: igw_out
