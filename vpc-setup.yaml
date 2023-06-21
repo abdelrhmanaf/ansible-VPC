@@ -98,4 +98,4 @@
         state: "{{state}}"
         tags:
           Tag1: IGW
-        register: igw_out
+      register: igw_out
