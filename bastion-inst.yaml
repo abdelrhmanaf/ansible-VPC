@@ -55,5 +55,5 @@
           Project: Basrtion
         security_group: "{{BastionSG_out.group.id}}"
         vpc_subnet_id: "{{pubsub1id}}"
-      register: bastionHost_out 
-      when: bastionHost_info.instances == []
+        register: bastionHost_out 
+        when: bastionHost_info.instances == []
