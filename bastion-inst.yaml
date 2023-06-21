@@ -35,6 +35,13 @@
             cidr_ip: "{{MYIP}}"
       register: BastionSG_out
 
+    - name: Check if Bastion host exists
+      amazon.aws.ec2_instance_info:
+        region: "{{region}}"
+        filters:
+          "tag:Name": "Bastion_host"
+        exact_count: 1
+      register: bastionHost_info
     - name: Create Ec2
       amazon.aws.ec2_instance:
         key_name: bastion
@@ -42,13 +49,11 @@
         image_id: "{{bastion_ami}}" 
         wait: true
         wait_timeout: 300
-        tags:
-          Name: "Bastion_host"
-          Project: Basrtion
         exact_count: 1
-        purge_tag:
+        tags:
           Name: "Bastion_host"
           Project: Basrtion
         security_group: "{{BastionSG_out}}"
         vpc_subnet_id: "{{pubsub1id}}"
       register: bastionHost_out 
+      when: bastionHost_info.instances == []
