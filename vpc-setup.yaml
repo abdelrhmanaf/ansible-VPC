@@ -13,6 +13,6 @@
         state: "{{state}}"
         dns_support: yes
         dns_hostnames: yes
-        tenansy: default
+        tenancy: default
       register: vpcout
       
