@@ -113,6 +113,4 @@
         routes:
           - dest: 0.0.0.0/0
             gateway_id: "{{ igw_out.gateway_id }}"
-          - dest: ::/0
-            gateway_id: "{{ igw_out.gateway_id }}"
       register: publicRT_out
