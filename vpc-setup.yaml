@@ -7,7 +7,7 @@
 
     - name: Create VPC
       amazon.aws.ec2_vpc_net:
-        name: "{{vpc-name}}"
+        name: "{{vpc_name}}"
         cidr_block: "{{vpcCidr}}"
         region: "{{region}}"
         dns_spport: yes
