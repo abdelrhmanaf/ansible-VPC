@@ -32,61 +32,61 @@
       register: pubsub1_out
 
       - name: Create subnet 2 in zone 2
-      amazon.aws.ec2_vpc_subnet:
-        vpc_id: "{{vpcout.vpc.id}}"
-        cidr: "{{PublicSub2cidr}}"
-        region: "{{region}}"
-        az: "{{zone2}}"
-        state: "{{state}}"
-        map_public: true
-        tags:
-          Name: PubSub2 
+        amazon.aws.ec2_vpc_subnet:
+          vpc_id: "{{vpcout.vpc.id}}"
+          cidr: "{{PublicSub2cidr}}"
+          region: "{{region}}"
+          az: "{{zone2}}"
+          state: "{{state}}"
+          map_public: true
+          tags:
+            Name: PubSub2 
       register: pubsub2_out
 
       - name: Create subnet 3 in zone 3
-      amazon.aws.ec2_vpc_subnet:
-        vpc_id: "{{vpcout.vpc.id}}"
-        cidr: "{{PublicSub3cidr}}"
-        region: "{{region}}"
-        az: "{{zone3}}"
-        state: "{{state}}"
-        map_public: true
-        tags:
-          Name: PubSub3 
+        amazon.aws.ec2_vpc_subnet:
+          vpc_id: "{{vpcout.vpc.id}}"
+          cidr: "{{PublicSub3cidr}}"
+          region: "{{region}}"
+          az: "{{zone3}}"
+          state: "{{state}}"
+          map_public: true
+          tags:
+            Name: PubSub3 
       register: pubsub1_out
 
       - name: Create subnet 4 in zone 1
-      amazon.aws.ec2_vpc_subnet:
-        vpc_id: "{{vpcout.vpc.id}}"
-        cidr: "{{PrivSub1cidr}}"
-        region: "{{region}}"
-        az: "{{zone1}}"
-        state: "{{state}}"
-        map_public: true
-        tags:
-          Name: PrivSub1 
+        amazon.aws.ec2_vpc_subnet:
+          vpc_id: "{{vpcout.vpc.id}}"
+          cidr: "{{PrivSub1cidr}}"
+          region: "{{region}}"
+          az: "{{zone1}}"
+          state: "{{state}}"
+          map_public: true
+          tags:
+            Name: PrivSub1 
       register: privsub1_out
 
       - name: Create subnet 5 in zone 2
-      amazon.aws.ec2_vpc_subnet:
-        vpc_id: "{{vpcout.vpc.id}}"
-        cidr: "{{PrivSub2cidr}}"
-        region: "{{region}}"
-        az: "{{zone2}}"
-        state: "{{state}}"
-        map_public: true
-        tags:
-          Name: PrivSub2 
+        amazon.aws.ec2_vpc_subnet:
+          vpc_id: "{{vpcout.vpc.id}}"
+          cidr: "{{PrivSub2cidr}}"
+          region: "{{region}}"
+          az: "{{zone2}}"
+          state: "{{state}}"
+          map_public: true
+          tags:
+            Name: PrivSub2 
       register: privsub2_out
 
       - name: Create subnet 6 in zone 3
-      amazon.aws.ec2_vpc_subnet:
-        vpc_id: "{{vpcout.vpc.id}}"
-        cidr: "{{PrivSub3cidr}}"
-        region: "{{region}}"
-        az: "{{zone3}}"
-        state: "{{state}}"
-        map_public: true
-        tags:
-          Name: PrivSub3 
+        amazon.aws.ec2_vpc_subnet:
+          vpc_id: "{{vpcout.vpc.id}}"
+          cidr: "{{PrivSub3cidr}}"
+          region: "{{region}}"
+          az: "{{zone3}}"
+          state: "{{state}}"
+          map_public: true
+          tags:
+            Name: PrivSub3 
       register: privsub3_out
