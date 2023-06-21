@@ -16,10 +16,10 @@
         tenancy: default
       register: vpcout
       
-      - debug: 
+    - debug: 
           var: vpcout
-          
-      - name: Create subnet 1
+
+    - name: Create subnet 1
         amazon.aws.ec2_vpc_subnet:
           vpc_id: "{{vpcout.vpc.id}}"
           cidr: "{{PublicSub1cidr}}"
@@ -28,5 +28,5 @@
           state: "{{state}}"
           map_public: yes
       tags:
-      Name: PubSub1 
+        Name: PubSub1 
       register: pubsub1_out
