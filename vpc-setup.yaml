@@ -6,7 +6,7 @@
       include_vars: Variables/vpc_setup
 
     - name: Create VPC
-      ec2-vpc-net:
+      amazon.aws.ec2_vpc_net:
         name: "{{vpc-name}}"
         cidr_block: "{{vpcCidr}}"
         region: "{{region}}"
