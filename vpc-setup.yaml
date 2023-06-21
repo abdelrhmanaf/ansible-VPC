@@ -106,13 +106,13 @@
         region: "{{region}}"
         tags:
           Name: Public
-      subnets:
-        - "{{ pubsub1_out.subnet.id }}"
-        - "{{ pubsub2_out.subnet.id }}"
-        - "{{ pubsub3_out.subnet_id }}"
-      routes:
-        - dest: 0.0.0.0/0
-          gateway_id: "{{ igw_out.gateway_id }}"
-        - dest: ::/0
-          gateway_id: "{{ igw_out.gateway_id }}"
+        subnets:
+          - "{{ pubsub1_out.subnet.id }}"
+          - "{{ pubsub2_out.subnet.id }}"
+          - "{{ pubsub3_out.subnet_id }}"
+        routes:
+          - dest: 0.0.0.0/0
+            gateway_id: "{{ igw_out.gateway_id }}"
+          - dest: ::/0
+            gateway_id: "{{ igw_out.gateway_id }}"
       register: publicRT_out
