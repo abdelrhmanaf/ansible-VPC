@@ -46,6 +46,7 @@
         key_name: bastion
         instance_type: t2.micro
         image_id: "{{bastion_ami}}" 
+        region: "{{region}}"
         wait: true
         wait_timeout: 300
         exact_count: 1
