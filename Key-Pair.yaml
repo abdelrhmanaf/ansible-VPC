@@ -1,0 +1,18 @@
+- hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: create a new EC2 key pair
+      amazon.aws.ec2_key:
+        name: test
+        region: us-east-2
+      connection: local
+      register: keyout
+
+    - debug:
+        var: keyout
+
+    - name: store login key
+      copy:
+        content: "{{keyout.key.private_key}}"
+        dest: ./test.pem
+      when: keyout.changed
