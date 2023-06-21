@@ -50,4 +50,5 @@
           Name: "Bastion_host"
           Project: Basrtion
         group_id: "{{BastionSG_out}}"
+        vpc_subnet_id: "{{pubsub1id}}"
       register: bastionHost_out 
