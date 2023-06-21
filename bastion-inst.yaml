@@ -38,7 +38,7 @@
     - name: Create Ec2
       amazon.aws.ec2_instance:
         key_name: bastion
-        instance_type: t2.micro
+        instance_type: "{{instance_type}}"
         image_id: "{{bastion_ami}}" 
         region: "{{region}}"
         wait: true
