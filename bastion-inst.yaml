@@ -33,7 +33,7 @@
             from_port: 22
             to_port: 22
             cidr_ip: "{{MYIP}}"
-        register: BastionSG_out
+      register: BastionSG_out
 
     - name: Create Ec2
       amazon.aws.ec2_instance:
@@ -49,4 +49,4 @@
           Project: Basrtion
         security_group: "{{BastionSG_out.group.id}}"
         vpc_subnet_id: "{{pubsub1id}}"
-        register: bastionHost_out 
+      register: bastionHost_out 
