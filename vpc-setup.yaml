@@ -53,7 +53,7 @@
         map_public: true
         tags:
           Name: PubSub3 
-      register: pubsub1_out
+      register: pubsub3_out
 
     - name: Create subnet 4 in zone 1
       amazon.aws.ec2_vpc_subnet:
