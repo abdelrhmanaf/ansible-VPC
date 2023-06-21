@@ -26,7 +26,7 @@
           region: "{{region}}"
           az: "{{zone1}}"
           state: "{{state}}"
-          map_public: yes
+          map_public: true
       tags:
         Name: PubSub1 
       register: pubsub1_out
