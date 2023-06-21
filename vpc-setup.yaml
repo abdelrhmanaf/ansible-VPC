@@ -14,5 +14,6 @@
         dns_hostnames: yes
         tenansy: default
         state: "{{state}}"
-      register: vpcout
       connections: local
+      register: vpcout
+      
