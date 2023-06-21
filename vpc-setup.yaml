@@ -93,7 +93,7 @@
 
     - name: Create Internet gateway
       amazon.aws.ec2_vpc_igw:
-        vpc_id: "{{vpcout.vpc.id}}"
+        vpc_id: "{{ vpcout.vpc.id }}"
         region: "{{region}}"
         state: "{{state}}"
         tags:
