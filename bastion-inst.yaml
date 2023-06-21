@@ -35,11 +35,11 @@
             cidr_ip: "{{MYIP}}"
     register: BastionSG_out
 
-    - Create Ec2
-      ec2: 
+    - name: Create Ec2
+      amazon.aws.ec2_instance:
         key_name: bastion
         instance_type: t2.micro
-        image: "{{bastion_ami}}"
+        image_id: "{{bastion_ami}}"
         wait: true
         wait_timeout: 300
         instance_tags:
@@ -49,6 +49,6 @@
         count_tag:
           Name: "Bastion_host"
           Project: Basrtion
-        group_id: "{{BastionSG_out}}"
+        security_group: "{{BastionSG_out}}"
         vpc_subnet_id: "{{pubsub1id}}"
       register: bastionHost_out 
