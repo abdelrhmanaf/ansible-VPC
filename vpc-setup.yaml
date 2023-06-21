@@ -101,7 +101,7 @@
       register: igw_out
 
     - name: Set up public subnet route table
-      amazon.aws.ec2_vpc_route_table:
+      amazon.aws.ec2_vpc_route_table
         vpc_id: "{{vpcout.vpc.id}}"
         region: "{{region}}"
         tags:
