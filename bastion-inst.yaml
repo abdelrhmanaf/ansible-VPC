@@ -40,7 +40,7 @@
         region: "{{region}}"
         filters:
           "tag:Name": "Bastion_host"
-      register: bastionHost_info
+        register: bastionHost_info
     - name: Create Ec2
       amazon.aws.ec2_instance:
         key_name: bastion
