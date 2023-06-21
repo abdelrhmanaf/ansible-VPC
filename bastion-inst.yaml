@@ -47,6 +47,6 @@
         tags:
           Name: "Bastion_host"
           Project: Basrtion
-        security_group: "{{BastionSG_out.group.id}}"
+        security_group: "Bastion_SG"
         vpc_subnet_id: "{{pubsub1id}}"
       register: bastionHost_out 
