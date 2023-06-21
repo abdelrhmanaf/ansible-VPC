@@ -9,4 +9,45 @@
     - name: Import VPC Var
       include_vars: Variables/output_vars
 
+    - name: create a new EC2 key pair
+      amazon.aws.ec2_key:
+        name: bastion
+        region: "{{region}}"
+      connection: local
+      register: keyout
 
+    - name: store login key
+      copy:
+        content: "{{keyout.key.private_key}}"
+        dest: ./bastion.pem
+      when: keyout.changed
+    
+    - name: create SG
+      amazon.aws.ec2_security_group:
+        name: Bastion_SG
+        description: security group for Basion Ins
+        vpc_id: "{{vpcid}}"
+        region: "{{region}}"
+        rules:
+          - proto: tcp
+            from_port: 22
+            to_port: 22
+            cidr_ip: "{{MYIP}}"
+    register: BastionSG_out
+
+    - Create Ec2
+      ec2: 
+        key_name: bastion
+        instance_type: t2.micro
+        image: "{{bastion_ami}}"
+        wait: true
+        wait_timeout: 300
+        instance_tags:
+          Name: "Bastion_host"
+          Project: Basrtion
+        exact_count: 1
+        count_tag:
+          Name: "Bastion_host"
+          Project: Basrtion
+        group_id: "{{BastionSG_out}}"
+      register: bastionHost_out 
